@@ -58,7 +58,7 @@ module.exports = function(app) {
       }, 'The call failed or the remote party hung up. Goodbye.');
       app.service('calls').create(newCall)
         .then((call) => {
-          console.log.info('call-request-handler', twimlRes.toString());
+          console.log('call-request-handler', twimlRes.toString());
           res.send(twimlRes.toString());
         }).catch(next);
     }).catch(next);
