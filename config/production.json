@@ -1,0 +1,11 @@
+{
+  "host": "",
+  "port": "PORT",
+  "nedb": "../data/",
+  "auth": {
+    "token": {
+      "secret": "FEATHERS_AUTH_SECRET"
+    },
+    "local": {}
+  }
+}

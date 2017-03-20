@@ -1,0 +1,34 @@
+{
+  "name": "themissingmiddle-backend",
+  "description": "A quick prototype testing Twilio",
+  "keywords": [
+    "node",
+    "express",
+    "feathers",
+    "feathersjs",
+    "twilio",
+    "chat",
+    "realtime",
+    "nedb"
+  ],
+  "website": "",
+  "repository": "https://github.com/lordvkrum/themissingmiddle-backend",
+  "logo": "",
+  "success_url": "/",
+  "env": {
+    "FEATHERS_AUTH_SECRET": {
+      "description": "Your secret for encrypting JWT's used with Feather authentication",
+      "required": true,
+      "generator": "secret"
+    }
+  },
+  "formation": [
+    {
+      "quantity": 1,
+      "size": "free",
+      "type": "web"
+    }
+  ],
+  "image": "heroku/nodejs",
+  "addons": []
+}
