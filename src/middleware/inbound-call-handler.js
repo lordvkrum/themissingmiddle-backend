@@ -29,7 +29,7 @@ module.exports = function(app) {
           });
           let data = {
             from: 'The Missing Middle <support@themissingmiddle.org>',
-            to: 'lan.alberto.vkrum@gmail.com',
+            to: 'lan.alberto.vkrum@gmail.com,Wolfgang.Giersche@zuehlke.com,kjvrolijk@gmail.com',
             subject: `Recording Call ${body.CallSid}`,
             text: `You can listen to the call in ${body.RecordingUrl}`
           };
