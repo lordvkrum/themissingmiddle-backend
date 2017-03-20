@@ -14,6 +14,7 @@
     "twimlAppSid": "TWILIO_TWIML_APP_SID"
 	},
   "mailgun": {
+    "domain": "MAILGUN_DOMAIN",
     "apiKey": "MAILGUN_API_KEY"
   }
 }

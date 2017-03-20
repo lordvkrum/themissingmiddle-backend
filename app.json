@@ -33,8 +33,12 @@
       "description": "Your Twilio Twiml App SID",
       "required": true
     },
+    "MAILGUN_DOMAIN": {
+      "description": "Your Mailgun domain",
+      "required": true
+    },
     "MAILGUN_API_KEY": {
-      "description": "Your Mailgun api jey",
+      "description": "Your Mailgun api key",
       "required": true
     },
     "HOST": {

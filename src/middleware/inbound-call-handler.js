@@ -23,10 +23,9 @@ module.exports = function(app) {
     switch (body.DialCallStatus) {
       case 'completed':
         if (body.RecordingUrl) {
-          const domain = 'themissingmiddle.org';
           const mailSender = mailgun({
             apiKey: app.get('mailgun').apiKey,
-            domain: domain
+            domain: app.get('mailgun').domain
           });
           let data = {
             from: 'The Missing Middle <support@themissingmiddle.org>',
