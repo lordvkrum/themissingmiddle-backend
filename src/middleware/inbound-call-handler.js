@@ -31,12 +31,14 @@ module.exports = function(app) {
         }, 'Sorry, there was an error.');
         break;
     }
-    app.service('calls').patch({
-      twilioId: body.CallSid
-    }, {
+    app.service('calls').patch(null, {
       recordingUrl: body.RecordingUrl,
       status: body.DialCallStatus,
       callDuration: body.DialCallDuration || 0
+    }, {
+      query: {
+        twilioId: body.CallSid
+      }
     }).then((call) => {
       console.log('inbound-call-handler', twimlRes.toString());
       res.send(twimlRes.toString());
