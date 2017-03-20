@@ -8,15 +8,16 @@ module.exports = function(app) {
     console.log('inbound-call-handler');
     const body = req.body;
     console.log(body);
-    // client: string;
-    // PhoneNumber: string;
-    // DialCallStatus: string;
-    // DialCallDuration: string;
-    // RecordingUrl: string;
-    // From: string;
-    // To: string;
+    // Called: string;
+    // Caller: string;
+    // DialCallSid: string;
+    // CallStatus: string;
     // CallSid: string;
-    response.type('text/xml');
+    // To: string;
+    // From: string;
+    // DialCallStatus: string;
+    // Direction: string;
+    res.type('text/xml');
     var twimlRes = new twilio.TwimlResponse();
     switch (body.DialCallStatus) {
       case 'completed':
@@ -30,7 +31,7 @@ module.exports = function(app) {
         }, 'Sorry, there was an error.');
         break;
     }
-    app.service('calls').update({
+    app.service('calls').patch({
       twilioId: body.CallSid
     }, {
       recordingUrl: body.RecordingUrl,
