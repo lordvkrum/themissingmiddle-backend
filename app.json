@@ -41,6 +41,10 @@
       "description": "Your Mailgun api key",
       "required": true
     },
+    "MAILGUN_SEND_TO": {
+      "description": "Emails to send call recordings",
+      "required": true
+    },
     "HOST": {
       "description": "Your deploy host",
       "required": false

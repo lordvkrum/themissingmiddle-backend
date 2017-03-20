@@ -15,6 +15,7 @@
 	},
 	"mailgun": {
     "domain": "MAILGUN_DOMAIN",
-		"apiKey": "MAILGUN_API_KEY"
+		"apiKey": "MAILGUN_API_KEY",
+		"sendTo": "MAILGUN_SEND_TO"
 	}
 }
