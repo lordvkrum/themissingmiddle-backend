@@ -23,8 +23,7 @@
     },
     "TWILIO_ACCOUNT_SID": {
       "description": "Your Twilio account SID",
-      "required": true,
-      "generator": "secret"
+      "required": true
     },
     "TWILIO_AUTH_TOKEN": {
       "description": "Your Twilio account auth token",
