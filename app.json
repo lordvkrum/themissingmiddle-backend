@@ -34,10 +34,12 @@
       "required": true
     },
     "HOST": {
-      "description": "Your deploy host"
+      "description": "Your deploy host",
+      "required": false
     },
     "PORT": {
-      "description": "Your deploy port"
+      "description": "Your deploy port",
+      "required": false
     }
   },
   "formation": [

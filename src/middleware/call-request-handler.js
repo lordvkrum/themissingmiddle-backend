@@ -8,52 +8,54 @@ module.exports = function(app) {
     console.log('call-request-handler');
     const body = req.body;
     console.log(body);
-    // client: string;
-    // From: string;
-    // To: string;
-    // PhoneNumber: string;
-    // contactId: string;
+    // Called: string;
+    // Caller: string;
+    // CallStatus: string;
     // CallSid: string;
+    // contactId: string;
+    // To: string;
+    // From: string;
+    // Direction: string;
     res.type('text/xml');
     let twimlRes = new twilio.TwimlResponse();
-    app.service('users').find({
-      query: {
-        phoneNumber: body.To || body.From
+    let newCall = {
+      twilioId: body.CallSid
+    };
+    let dialOptions = {
+      method: 'POST',
+      action: '/handleInboundCall',
+      record: 'record-from-answer'
+    };
+    return Promise.resolve().then(() => {
+      newCall.contact = body.contactId;
+      if (body.From.indexOf('client:') !== -1) {
+        newCall.owner = body.From.slice(7);
+        return [];
+      } else {
+        // owner is on To phoneNumber
+        return app.service('users').find({
+          query: {
+            phoneNumber: body.To
+          }
+        });
       }
     }).then((users) => {
       let user = users[0];
-      if (!user) {
-        next(new errors.NotFound('User not found.'));
+      if (user) {
+        newCall.owner = user._id;
+        dialOptions.callerId = user.email;
       }
-      let newCall = {
-        twilioId: body.CallSid,
-        owner: user._id
-      };
-      if (body.PhoneNumber) {
-        newCall.direction = 'outbound';
-        newCall.phoneNumber = body.PhoneNumber;
-        twimlRes.dial({
-          method: 'POST',
-          action: '/handleInboundCall',
-          record: 'record-from-answer',
-          callerId: user.phoneNumber
-        }, (node) => {
-          node.number(body.PhoneNumber);
-        });
-        twimlRes.say({
-          voice: 'woman'
-        }, 'The call failed or the remote party hung up. Goodbye.');
-      } else {
-        newCall.direction = 'inbound';
-        newCall.phoneNumber = body.From;
-        twimlRes.dial({
-          method: 'POST',
-          action: '/handleInboundCall',
-          record: 'record-from-answer'
-        }, (node) => {
-          node.client(body.To);
-        });
-      }
+      newCall.direction = body.Direction;
+      twimlRes.dial(dialOptions, (node) => {
+        if (body.contactId) {
+          node.client(`client:${body.contactId}`);
+        } else {
+          node.number(body.To);
+        }
+      });
+      twimlRes.say({
+        voice: 'woman'
+      }, 'The call failed or the remote party hung up. Goodbye.');
       app.service('calls').create(newCall)
         .then((call) => {
           console.log.info('call-request-handler', twimlRes.toString());
