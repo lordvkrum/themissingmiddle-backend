@@ -1,11 +1,16 @@
 {
-  "host": "",
-  "port": "PORT",
-  "nedb": "../data/",
-  "auth": {
-    "token": {
-      "secret": "FEATHERS_AUTH_SECRET"
-    },
-    "local": {}
-  }
+	"host": "HOST",
+	"port": "PORT",
+	"nedb": "../data/",
+	"auth": {
+		"token": {
+			"secret": "FEATHERS_AUTH_SECRET"
+		},
+		"local": {}
+	},
+	"twilio": {
+		"accountSid": "TWILIO_ACCOUNT_SID",
+		"authToken": "TWILIO_AUTH_TOKEN",
+    "twimlAppSid": "TWILIO_TWIML_APP_SID"
+	}
 }

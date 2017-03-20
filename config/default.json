@@ -7,5 +7,10 @@
       "secret": "+GJwhl9/93z1LNvxJ7xyIkEFFeqeErUYoub/Eeh4FIqLqr3j5nZoSt8UJkqogOP8iHUbJxo74R4L0OpRkZSFgw=="
     },
     "local": {}
-  }
+  },
+	"twilio": {
+		"accountSid": "TWILIO_ACCOUNT_SID",
+		"authToken": "TWILIO_AUTH_TOKEN",
+    "twimlAppSid": "TWILIO_TWIML_APP_SID"
+	}
 }

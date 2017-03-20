@@ -20,6 +20,25 @@
       "description": "Your secret for encrypting JWT's used with Feather authentication",
       "required": true,
       "generator": "secret"
+    },
+    "TWILIO_ACCOUNT_SID": {
+      "description": "Your Twilio account SID",
+      "required": true,
+      "generator": "secret"
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "Your Twilio account auth token",
+      "required": true
+    },
+    "TWILIO_TWIML_APP_SID": {
+      "description": "Your Twilio Twiml App SID",
+      "required": true
+    },
+    "HOST": {
+      "description": "Your deploy host"
+    },
+    "PORT": {
+      "description": "Your deploy port"
     }
   },
   "formation": [
