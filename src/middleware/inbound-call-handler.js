@@ -1,6 +1,7 @@
 'use strict';
 
 const twilio = require('twilio');
+const mailgun = require('mailgun-js');
 const errors = require('feathers-errors');
 
 module.exports = function(app) {
@@ -21,6 +22,24 @@ module.exports = function(app) {
     var twimlRes = new twilio.TwimlResponse();
     switch (body.DialCallStatus) {
       case 'completed':
+        if (body.RecordingUrl) {
+          const domain = 'themissingmiddle.org';
+          const mailSender = mailgun({
+            apiKey: app.get('mailgun').apiKey,
+            domain: domain
+          });
+          let data = {
+            from: 'The Missing Middle <support@themissingmiddle.org>',
+            to: 'lan.alberto.vkrum@gmail.com',
+            subject: `Recording Call ${body.CallSid}`,
+            text: `You can listen to the call in ${body.RecordingUrl}`
+          };
+          mailSender.messages().send(data, (error, body) => {
+            if (error) {
+              next(new errors.NotFound(error));
+            }
+          });
+        }
         twimlRes.say({
           voice: 'woman'
         }, 'Thank you, good bye.');
