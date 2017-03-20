@@ -5,7 +5,8 @@
   "homepage": "",
   "main": "src/",
   "keywords": [
-    "feathers", "twilio"
+    "feathers",
+    "twilio"
   ],
   "license": "MIT",
   "repository": {},
@@ -40,6 +41,7 @@
     "nedb": "^1.8.0",
     "passport": "^0.3.2",
     "serve-favicon": "^2.3.0",
+    "twilio": "^2.11.1",
     "winston": "^2.2.0"
   },
   "devDependencies": {
