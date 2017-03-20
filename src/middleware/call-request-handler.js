@@ -48,7 +48,7 @@ module.exports = function(app) {
       newCall.direction = body.Direction;
       twimlRes.dial(dialOptions, (node) => {
         if (body.contactId) {
-          node.client(`client:${body.contactId}`);
+          node.client(body.contactId);
         } else {
           node.number(body.To);
         }
