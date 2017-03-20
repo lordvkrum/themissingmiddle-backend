@@ -11,9 +11,9 @@
     "realtime",
     "nedb"
   ],
-  "website": "",
+  "website": "https://github.com/lordvkrum/themissingmiddle-backend",
   "repository": "https://github.com/lordvkrum/themissingmiddle-backend",
-  "logo": "",
+  "logo": "http://s32.postimg.org/4k9q912x1/aar_QEIys.jpg",
   "success_url": "/",
   "env": {
     "FEATHERS_AUTH_SECRET": {
