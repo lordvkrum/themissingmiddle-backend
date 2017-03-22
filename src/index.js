@@ -8,7 +8,7 @@ const serverUrl = `${app.get('host')}`;
 
 server.on('listening', () => {
 	console.log(`Feathers application started on ${serverUrl}`);
-	console.log(`Installing on ${serverUrl}/install...`);
+	console.log(`Installing on ${serverUrl}install...`);
 	request(`http://${serverUrl}/install`, (error, response, body) => {
 		if (!error && response.statusCode == 200) {
 			console.log(body);
