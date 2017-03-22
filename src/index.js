@@ -4,7 +4,7 @@ const app = require('./app');
 const request = require('request');
 const port = app.get('port');
 const server = app.listen(port);
-const serverUrl = `${app.get('host')}:${port}`;
+const serverUrl = `${app.get('host')}`;
 
 server.on('listening', () => {
 	console.log(`Feathers application started on ${serverUrl}`);
